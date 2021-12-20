@@ -11,7 +11,7 @@
 
     <groupId>ru.dnx</groupId>
     <artifactId>spring-boot-starter-minio</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Spring Boot Starter MinIO</name>
     <description>Spring Boot Starter MinIO</description>
 

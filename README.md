@@ -13,9 +13,27 @@
 
 ### Пример использования:
 
+- Добавить зависимость в Maven:
+
+```xml
+
+<dependency>
+    <groupId>ru.dnx</groupId>
+    <artifactId>spring-boot-starter-minio</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+- Добавить зависимость в Gradle:
+
+```groovy
+implementation("ru.dnx:spring-boot-starter-minio:1.0.0")
+```
+
 ```kotlin
+
 /**
- * Сервис для извлечение файлов из файлового хранилища
+ * Сервис для взаимодействия с файловым хранилищем
  */
 @Service
 class FileStorageService(
@@ -26,14 +44,16 @@ class FileStorageService(
 
     /**
      * Запрос файлов из файлового хранилища
-     * @param - request
+     * @param folderName - наименование папки
+     * @param fileName - наименование файла
+     * @return файл
      */
     fun retrieveFiles(folderName: String, fileName: String): File {
         logger.info { "Запрос файлов из файлового хранилища" }
         val file = File(fileName)
         FileUtils.copyInputStreamToFile(
             minIOService.getFile(
-                "bucketName", String.format("%s/%s", folderName, fileName)
+                "accreditation", String.format("%s/%s", folderName, fileName)
             ), file
         )
         return file
@@ -41,13 +61,14 @@ class FileStorageService(
 
     /**
      * Сохранение файла в файловом хранилище и получение ссылки на файл
-     * @param - request
+     * @param file - файл
+     * @return ссылка на файл  в файловом хранилище
      */
     fun saveFile(file: MultipartFile): String {
         logger.info { "Загрузка файла в файловое хранилище" }
         val folderName: String = UUID.randomUUID().toString()
         val fileName: String = file.name
-        return minIOService.saveFile("bucketName", String.format("%s/%s", folderName, fileName), file)
+        return minIOService.saveFile("accreditation", String.format("%s/%s", folderName, fileName), file)
     }
 }
 ```
