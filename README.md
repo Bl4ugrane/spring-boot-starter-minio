@@ -5,6 +5,7 @@
 ### При использовании стартера, необходимо в файле настроек указать:
 
 ```yaml
+spring:  
   minio:
     url: MINIO_URL
     access-key: MINIO_ACCESS_KEY
@@ -16,7 +17,6 @@
 - Добавить зависимость в Maven:
 
 ```xml
-
 <dependency>
     <groupId>ru.dnx</groupId>
     <artifactId>spring-boot-starter-minio</artifactId>
@@ -31,7 +31,6 @@ implementation("ru.dnx:spring-boot-starter-minio:1.0.0")
 ```
 
 ```kotlin
-
 /**
  * Сервис для взаимодействия с файловым хранилищем
  */
@@ -48,7 +47,7 @@ class FileStorageService(
      * @param fileName - наименование файла
      * @return файл
      */
-    fun retrieveFiles(folderName: String, fileName: String): File {
+    fun retrieveFile(folderName: String, fileName: String): File {
         logger.info { "Запрос файлов из файлового хранилища" }
         val file = File(fileName)
         FileUtils.copyInputStreamToFile(
@@ -62,7 +61,7 @@ class FileStorageService(
     /**
      * Сохранение файла в файловом хранилище и получение ссылки на файл
      * @param file - файл
-     * @return ссылка на файл  в файловом хранилище
+     * @return ссылка на файл в файловом хранилище
      */
     fun saveFile(file: MultipartFile): String {
         logger.info { "Загрузка файла в файловое хранилище" }
