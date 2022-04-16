@@ -18,7 +18,7 @@ spring:
 
 ```xml
 <dependency>
-    <groupId>ru.dnx</groupId>
+    <groupId>ru.blaugrane</groupId>
     <artifactId>spring-boot-starter-minio</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -27,7 +27,7 @@ spring:
 - Добавить зависимость в Gradle:
 
 ```groovy
-implementation("ru.dnx:spring-boot-starter-minio:1.0.0")
+implementation("ru.blaugrane:spring-boot-starter-minio:1.0.0")
 ```
 
 ```kotlin

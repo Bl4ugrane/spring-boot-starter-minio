@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-ru.dnx.spring.boot.starter.minio.MinIOConfiguration
+ru.blaugrane.spring.boot.starter.minio.MinIOConfiguration

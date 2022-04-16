@@ -1,4 +1,4 @@
-package ru.dnx.spring.boot.starter.minio;
+package ru.blaugrane.spring.boot.starter.minio;
 
 import io.minio.MinioClient;
 import lombok.RequiredArgsConstructor;

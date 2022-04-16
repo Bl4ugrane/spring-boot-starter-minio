@@ -1,4 +1,4 @@
-package ru.dnx.spring.boot.starter.minio;
+package ru.blaugrane.spring.boot.starter.minio;
 
 import io.minio.MinioClient;
 import io.minio.Result;
@@ -43,6 +43,7 @@ public class MinIOService {
      */
     @SneakyThrows
     public InputStream getFile(String bucketName, String filePath) {
+        log.info("Получение файла из хранилища");
         return minioClient.getObject(bucketName, filePath);
     }
 
